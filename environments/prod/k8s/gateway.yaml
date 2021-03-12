@@ -121,3 +121,13 @@ spec:
   - name: v2
     labels:
       version: v2
+---
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: eshop-currencyservice-bg
+spec:
+  host: eshop-currencyservice-bg.default.svc.cluster.local
+  trafficPolicy:
+    tls:
+      mode: ISTIO_MUTUAL
