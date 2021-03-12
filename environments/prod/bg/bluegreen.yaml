@@ -9,7 +9,7 @@ spec:
   - name: tcp
     port: 9999
     targetPort: 9999
-    nodePort: 30082
+    nodePort: 30081
   type: NodePort
 
 ---
