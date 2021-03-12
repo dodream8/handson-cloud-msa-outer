@@ -1,0 +1,56 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: eshop-currencyservice-bg
+spec:
+  replicas: 2
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: eshop-currencyservice-bg
+  template:
+    metadata:
+      labels:
+        app: eshop-currencyservice-bg
+    spec:
+      containers:
+      - name: eshop-currencyservice-bg
+        image: gcr.io/architect-certification-289902/25/eshop-currencyservice:1
+#        imagePullPolicy: Always
+        ports:
+        - containerPort: 9999
+  strategy:
+    blueGreen: 
+      activeService: eshop-currencyservice-active
+      previewService: eshop-currencyservice-preview
+      autoPromotionEnabled: false
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: eshop-currencyservice-active
+spec:
+  selector:
+    app: eshop-currencyservice-bg
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9999
+    nodePort: 30081
+  type: NodePort
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: eshop-currencyservice-preview
+spec:
+  selector:
+    app: eshop-currencyservice-bg
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 9999
+    nodePort: 30082
+  type: NodePort
