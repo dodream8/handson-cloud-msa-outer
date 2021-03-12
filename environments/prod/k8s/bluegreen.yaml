@@ -19,6 +19,9 @@ spec:
 #        imagePullPolicy: Always
         ports:
         - containerPort: 9999
+        env:
+        - name: PORT
+          value: "9999"
   strategy:
     blueGreen: 
       activeService: eshop-currencyservice-active
