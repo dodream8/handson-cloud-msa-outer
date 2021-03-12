@@ -55,7 +55,7 @@ spec:
     route:
     - destination:
  #       host: eshop-currencyservice
-        host: eshop-currencyservice-bg
+        host: eshop-currencyservice-bg.default.svc.cluster.local
         port:
           number: 9999
   - match:
