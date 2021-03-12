@@ -9,8 +9,8 @@ spec:
   - name: api
     port: 9999
     targetPort: 9999
-    nodePort: 30081
-  type: NodePort
+#    nodePort: 30081
+  type: ClusterIP
 
 ---
 kind: Service
@@ -24,8 +24,8 @@ spec:
   - name: api
     port: 9999
     targetPort: 9999
-    nodePort: 30082
-  type: NodePort
+#    nodePort: 30082
+  type: ClusterIP
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
