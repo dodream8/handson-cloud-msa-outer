@@ -55,4 +55,4 @@ spec:
     port: 9999
     targetPort: 9999
 #    nodePort: 30082
-  type: ClusterIP
+  type: NodePort
