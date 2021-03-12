@@ -1,3 +1,32 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: eshop-currencyservice-active
+spec:
+  selector:
+    app: eshop-currencyservice-bg
+  ports:
+  - name: TCP
+    port: 9999
+    targetPort: 9999
+    nodePort: 30082
+  type: NodePort
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: eshop-currencyservice-preview
+spec:
+  selector:
+    app: eshop-currencyservice-bg
+  ports:
+  - name: TCP
+    port: 9999
+    targetPort: 9999
+    nodePort: 30082
+  type: NodePort
+---
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
@@ -28,32 +57,4 @@ spec:
       previewService: eshop-currencyservice-preview
       autoPromotionEnabled: false
 
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: eshop-currencyservice-active
-spec:
-  selector:
-    app: eshop-currencyservice-bg
-  ports:
-  - name: TCP
-    port: 9999
-    targetPort: 9999
-    nodePort: 30082
-  type: NodePort
 
----
-kind: Service
-apiVersion: v1
-metadata:
-  name: eshop-currencyservice-preview
-spec:
-  selector:
-    app: eshop-currencyservice-bg
-  ports:
-  - name: TCP
-    port: 9999
-    targetPort: 9999
-    nodePort: 30082
-  type: NodePort
