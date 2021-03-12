@@ -53,7 +53,7 @@ spec:
     app: eshop-currencyservice-bg
   ports:
   - protocol: TCP
-    port: 80
+    port: 9999
     targetPort: 9999
     nodePort: 30082
   type: NodePort
