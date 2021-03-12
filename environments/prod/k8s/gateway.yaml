@@ -54,10 +54,11 @@ spec:
         prefix: /api/currencies
     route:
     - destination:
- #       host: eshop-currencyservice
-        host: eshop-currencyservice-bg
+        host: eshop-currencyservice
+ #       host: eshop-currencyservice-bg
         port:
-          number: 9999
+          number: 8094
+ #         number: 9999
   - match:
     - uri:
         prefix: /api/ads
