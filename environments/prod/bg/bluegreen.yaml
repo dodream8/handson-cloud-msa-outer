@@ -9,7 +9,7 @@ spec:
   - name: tcp
     port: 9999
     targetPort: 9999
-    nodePort: 30081
+    nodePort: 9999
   type: NodePort
 
 ---
@@ -24,7 +24,7 @@ spec:
   - name: tcp
     port: 9999
     targetPort: 9999
-    nodePort: 30082
+    nodePort: 9998
   type: NodePort
 ---
 apiVersion: argoproj.io/v1alpha1
