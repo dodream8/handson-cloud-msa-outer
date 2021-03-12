@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: eshop-currencyservice-bg
-        image: gcr.io/architect-certification-289902/25/eshop-currencyservice:2
+        image: gcr.io/architect-certification-289902/25/eshop-currencyservice:1
 #        imagePullPolicy: Always
         ports:
         - containerPort: 9999
@@ -40,7 +40,7 @@ spec:
   - name: api
     port: 9999
     targetPort: 9999
-  type: NodePort
+  type: ClusterIP
 
 ---
 kind: Service
@@ -55,4 +55,4 @@ spec:
     port: 9999
     targetPort: 9999
 #    nodePort: 30082
-  type: NodePort
+  type: ClusterIP
