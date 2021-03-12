@@ -40,7 +40,7 @@ spec:
   - name: api
     port: 9999
     targetPort: 9999
-  type: ClusterIP
+  type: NodePort
 
 ---
 kind: Service
