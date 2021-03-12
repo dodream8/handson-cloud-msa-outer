@@ -6,7 +6,7 @@ spec:
   selector:
     app: eshop-currencyservice-bg
   ports:
-  - name: tcp
+  - name: api
     port: 9999
     targetPort: 9999
     nodePort: 30081
@@ -21,7 +21,7 @@ spec:
   selector:
     app: eshop-currencyservice-bg
   ports:
-  - name: tcp
+  - name: api
     port: 9999
     targetPort: 9999
     nodePort: 30082
