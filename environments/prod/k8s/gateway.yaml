@@ -56,7 +56,7 @@ spec:
     - destination:
         host: eshop-currencyservice
         port:
-          number: 8094
+          number: 9999
   - match:
     - uri:
         prefix: /api/ads
